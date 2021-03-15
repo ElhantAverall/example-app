@@ -19,7 +19,7 @@ class PageController extends Controller
             'price' => 'required|integer',
             'count' => 'required|integer|min:1'
         ];
-        $validateData = $this-> validate($request, $rules);
+        $validateData = $this->validate($request, $rules);
 
         $report = new Report;
 
