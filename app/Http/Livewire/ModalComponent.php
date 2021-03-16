@@ -15,4 +15,8 @@ class ModalComponent extends Component
 
         return view('component.modal-window', compact('consumable'));
     }
+
+    public function updatePrice()
+    {
+    }
 }

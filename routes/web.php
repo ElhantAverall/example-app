@@ -17,6 +17,6 @@ use Symfony\Component\Console\Input\Input;
 */
 
 
-Route::get('/consumable', [PageController::class, 'index']);
+Route::get('/', [PageController::class, 'index']);
 
 Route::post('store', [PageController::class, 'store']);

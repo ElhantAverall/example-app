@@ -3,17 +3,15 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\Consumable;
+use App\Models\Report;
 
 class PostComponent extends Component
 {
-    public $selectedName = null, $postId = 3;
 
     public function render()
     {
-        $consumable = Consumable::all();
+        $reports = Report::all();
 
-        return view('component.table', compact('consumable'));
+        return view('component.table', compact('reports'));
     }
-
 }
