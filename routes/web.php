@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\ConsumableController;
-use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\Console\Input\Input;
 
@@ -17,6 +16,10 @@ use Symfony\Component\Console\Input\Input;
 */
 
 
-Route::get('/', [PageController::class, 'index']);
+Route::get('/consumable/', [ConsumableController::class, 'index']);
 
-Route::post('store', [PageController::class, 'store']);
+Route::post('store', [ConsumableController::class, 'store'])->name('consumable.store');
+
+Route::post('destroy/{id}', [ConsumableController::class, 'destroy'])->name('consumable.destroy');
+
+Route::post('edit/{id}', [ConsumableController::class, 'edit'])->name('consumable.edit');
