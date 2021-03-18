@@ -18,8 +18,15 @@ use Symfony\Component\Console\Input\Input;
 
 Route::get('/consumable/', [ConsumableController::class, 'index']);
 
-Route::post('store', [ConsumableController::class, 'store'])->name('consumable.store');
+Route::post('consumable/store', [ConsumableController::class, 'store'])->name('consumable.store');
 
-Route::post('destroy/{id}', [ConsumableController::class, 'destroy'])->name('consumable.destroy');
+Route::delete('consumable/destroy/{id}', [ConsumableController::class, 'destroy'])->name('consumable.destroy');
 
-Route::post('edit/{id}', [ConsumableController::class, 'edit'])->name('consumable.edit');
+Route::post('consumable/edit/{id}', [ConsumableController::class, 'edit'])->name('consumable.edit');
+
+
+Route::get('/admin-panel/', [ConsumableController::class, 'index']);
+
+Route::post('admin-panel/store', [ConsumableController::class, 'store'])->name('consumable.store');
+
+Route::delete('admin-panel/destroy/{id}', [ConsumableController::class, 'destroy'])->name('consumable.destroy');
