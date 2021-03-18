@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ConsumableController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\Console\Input\Input;
 
@@ -22,11 +23,13 @@ Route::post('consumable/store', [ConsumableController::class, 'store'])->name('c
 
 Route::delete('consumable/destroy/{id}', [ConsumableController::class, 'destroy'])->name('consumable.destroy');
 
+// Route::get('consumable/edit/{id}', [ConsumableController::class, 'edit'])->name('consumable.edit');
+
 Route::post('consumable/edit/{id}', [ConsumableController::class, 'edit'])->name('consumable.edit');
 
 
-Route::get('/admin-panel/', [ConsumableController::class, 'index']);
+Route::get('/admin-panel/', [AdminController::class, 'index']);
 
-Route::post('admin-panel/store', [ConsumableController::class, 'store'])->name('consumable.store');
+Route::post('admin-panel/store', [AdminController::class, 'store'])->name('admin.store');
 
-Route::delete('admin-panel/destroy/{id}', [ConsumableController::class, 'destroy'])->name('consumable.destroy');
+Route::delete('admin-panel/destroy/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');

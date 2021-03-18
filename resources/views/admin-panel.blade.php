@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('admin')
+@section('content')
 
 
     <div class="row">
@@ -14,27 +14,27 @@
                         <th class="table-bordered__row" scope="col">Цена</th>
                         <th class="table-bordered__row" scope="col" width="13.3%">
                             <button type="button" class="btn btn-success" data-toggle="modal"
-                                data-target="#exampleModal">Добавить
+                                data-target="#adminModal">Добавить
                             </button>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
 
-                    @foreach ($consumables as $consumable)
+                    @foreach ($consumables as $item)
                         <tr>
                             <td scope="row">
-                                {{ $consumable->id }}
+                                {{ $item->id }}
                             </td>
                             <td>
-                                {{ $consumable->name }}
+                                {{ $item->name }}
                             </td>
 
                             <td width="15%">
-                                {{ $consumable->price }}
+                                {{ $item->price }}
                             </td>
                             <td>
-                                <form action="{{ route('consumable.destroy', ['id' => $consumable->id]) }}" method="POST">
+                                <form action="{{ route('admin.destroy', ['id' => $item->id]) }}" method="POST">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="btn btn-danger remove">Удалить</button>
@@ -50,7 +50,7 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="adminModalLabel"
+    <div class="modal fade" id="adminModal" tabindex="-1" role="dialog" aria-labelledby="adminModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -60,21 +60,15 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form id="add-consumable" method="post" action="{{ route('consumable.store') }}">
+                <form id="add-consumable" method="post" action="{{ route('admin.store') }}">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group">
-                            <select class="custom-select" name="name">
-                                <option value="" selected>Выберите расходник</option>
-                                @foreach ($consumable as $item)
-                                    <option option value="{{ $item->name }}">{{ $item->name }}</option>
-                                @endforeach
-                            </select>
+                            <input class="form-control" type="text" name="name" placeholder="Имя расходника">
                         </div>
 
                         <div class="form-group">
-                            <input class="form-control" type="text" name="price" placeholder="Цена" readonly
-                                class="form-control" type="number" readonly name="price" value="{{ $item->price }}">
+                            <input class="form-control" placeholder="Цена" type="number" name="price" min="0">
                         </div>
                     </div>
                 </form>
