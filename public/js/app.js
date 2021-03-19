@@ -12,6 +12,10 @@ var price = document.querySelector('.price');
 selected.addEventListener('change', function () {
   price.value = selected.options[selected.selectedIndex].text;
 });
+var checkbox = document.querySelector('.checkbox');
+checkbox.addEventListener('change', function () {
+  console.log();
+});
 
 /***/ }),
 

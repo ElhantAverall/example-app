@@ -23,8 +23,10 @@
 
                     @foreach ($consumables as $item)
                         <tr>
-                            <td scope="row">
-                                {{ $item->id }}
+                            <td width="15% checkbox">
+                                <div class="form-group">
+                                    <input class="form-control" type="checkbox" name="allow" @if ($item->allow) checked @endif>
+                                </div>
                             </td>
                             <td>
                                 {{ $item->name }}
@@ -45,7 +47,7 @@
                     @endforeach
                 </tbody>
             </table>
-
+            <button class="btn btn-warning" type="submit">Сохранить</button>
         </div>
     </div>
 

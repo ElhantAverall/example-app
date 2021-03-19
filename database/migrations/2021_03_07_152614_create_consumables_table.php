@@ -17,6 +17,7 @@ class CreateConsumablesTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('price');
+            $table->boolean('allow');
             $table->timestamps();
         });
     }
