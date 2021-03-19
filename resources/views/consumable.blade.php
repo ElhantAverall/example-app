@@ -9,7 +9,6 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th class="table-bordered__row" scope="col">#</th>
                         <th class="table-bordered__row" scope="col">Имя</th>
                         <th class="table-bordered__row" scope="col">Цена</th>
                         <th class="table-bordered__row" scope="col">Количество</th>
@@ -24,9 +23,6 @@
 
                     @foreach ($reports as $report)
                         <tr>
-                            <td scope="row">
-                                {{ $report->id }}
-                            </td>
                             <td>
                                 {{ $report->name }}
                             </td>
@@ -39,14 +35,16 @@
                                 {{ $report->count }}
                             </td>
                             <td>
-                                <form action="{{ route('consumable.destroy', ['id' => $report->id]) }}" method="POST">
+                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit">Edit
+                                </button>
+                                <form class="inline-form"
+                                    action="{{ route('consumable.destroy', ['id' => $report->id]) }}" method="POST">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="btn btn-danger remove">Удалить</button>
-
                                 </form>
-                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit">Edit
-                                </button>
+
+
                             </td>
                         </tr>
                     @endforeach
@@ -73,14 +71,14 @@
                             <select class="custom-select" id="add-select" name="name">
                                 <option value="" selected>Выберите расходник</option>
                                 @foreach ($consumable as $item)
-                                    <option option value="{{ $item->name }}">{{ $item->name }}</option>
+                                    <option label="{{ $item->name }}" value="{{ $item->name }}">{{ $item->price }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <input class="form-control" id="price" placeholder="Цена" type="number" readonly name="price"
-                                value="{{ $item->price }}">
+                            <input class="form-control price" placeholder="Цена" type="number" readonly name="price">
                         </div>
 
                         <div class="form-group">
@@ -107,21 +105,20 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form id="editForm" method="post" action="{{ route('consumable.destroy', ['id' => $report->id]) }}">
+                    <form id="editForm" method="post" action="">
                         @csrf
                         <div class="modal-body">
                             <div class="form-group">
                                 <select class="custom-select" name="name">
                                     <option value="" selected>Выберите расходник</option>
                                     @foreach ($consumable as $item)
-                                        <option option value="{{ $item->name }}">{{ $item->name }}</option>
+                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <input class="form-control" placeholder="Цена" type="number" readonly name="price"
-                                    value="{{ $item->price }}">
+                                <input class="form-control" placeholder="Цена" type="number" readonly name="price">
                             </div>
 
                             <div class="form-group">

@@ -7,7 +7,11 @@
   \*****************************/
 /***/ (() => {
 
-
+var selected = document.querySelector('#add-select');
+var price = document.querySelector('.price');
+selected.addEventListener('change', function () {
+  price.value = selected.options[selected.selectedIndex].text;
+});
 
 /***/ }),
 

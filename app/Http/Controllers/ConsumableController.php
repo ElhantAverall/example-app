@@ -13,6 +13,7 @@ class ConsumableController extends Controller
         $reports = Report::all();
         $consumable = Consumable::all();
 
+        // dd($consumable);
         return view('consumable', compact('consumable', 'reports'));
     }
 

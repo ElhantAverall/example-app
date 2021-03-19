@@ -23,8 +23,6 @@ Route::post('consumable/store', [ConsumableController::class, 'store'])->name('c
 
 Route::delete('consumable/destroy/{id}', [ConsumableController::class, 'destroy'])->name('consumable.destroy');
 
-// Route::get('consumable/edit/{id}', [ConsumableController::class, 'edit'])->name('consumable.edit');
-
 Route::post('consumable/edit/{id}', [ConsumableController::class, 'edit'])->name('consumable.edit');
 
 

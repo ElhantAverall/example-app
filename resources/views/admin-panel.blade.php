@@ -9,7 +9,7 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th class="table-bordered__row" scope="col">#</th>
+                        <th class="table-bordered__row" scope="col">Разрешить</th>
                         <th class="table-bordered__row" scope="col">Имя</th>
                         <th class="table-bordered__row" scope="col">Цена</th>
                         <th class="table-bordered__row" scope="col" width="13.3%">

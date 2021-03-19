@@ -1,6 +1,7 @@
-const price = document.querySelector('#price')
 const selected = document.querySelector('#add-select')
+const price = document.querySelector('.price')
 
-selected.addEventListener('selectionchange', () => {
+selected.addEventListener('change', () => {
 
+    price.value = selected.options[selected.selectedIndex].text
 })
