@@ -36,14 +36,14 @@ class ConsumableController extends Controller
         return redirect('/consumable');
     }
 
-    public function edit($id)
+    public function edit($report)
     {
+
         $consumable = Consumable::all()
             ->where('allow', 1);
-        dd($consumable);
-        $reports = Report::all()->where('id', $id);
+        $report = Report::find($report);
 
-        return view('edit-consumable', compact('consumable', 'reports'));
+        return view('edit-consumable', compact('consumable', 'report'));
     }
 
     public function destroy($id)
@@ -54,8 +54,16 @@ class ConsumableController extends Controller
         return redirect('/consumable');
     }
 
-    public function update($id)
+    public function update(Request $request, $report)
     {
+        $update = $request->all();
+
+        $report = Report::find($report);
+
+        $report->name = $request->name;
+        $report->price = $request->price;
+        $report->count = $request->count;
+        $report->save();
 
 
         return redirect('/consumable');
