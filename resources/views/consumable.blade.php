@@ -37,7 +37,7 @@
                             <td>
 
                                 <a class="btn btn-warning"
-                                    href="{{ route('consumable.edit', ['id' => $report->id]) }}">Edit</a>
+                                    href="{{ route('consumable.edit', ['report' => $report]) }}">Edit</a>
 
                                 <form class="inline-form"
                                     action="{{ route('consumable.destroy', ['id' => $report->id]) }}" method="POST">
