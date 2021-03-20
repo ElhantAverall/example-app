@@ -25,8 +25,13 @@ class AdminController extends Controller
 
         $consumable = new Consumable;
 
+        if ($request->allow == null) {
+            $request->allow = 0;
+        }
+
         $consumable->name = $request->name;
         $consumable->price = $request->price;
+        $consumable->allow = $request->allow;
         $consumable->save();
         return redirect('/admin-panel');
     }

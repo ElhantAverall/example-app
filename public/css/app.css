@@ -5,3 +5,12 @@
 .inline-form {
   display: inline-block;
 }
+
+.form-label {
+  margin-bottom: 0;
+  font-size: 1.3rem;
+}
+
+.input-group-text {
+  margin-bottom: 1rem;
+}

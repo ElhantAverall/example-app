@@ -35,16 +35,16 @@
                                 {{ $report->count }}
                             </td>
                             <td>
-                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit">Edit
-                                </button>
+
+                                <a class="btn btn-warning"
+                                    href="{{ route('consumable.edit', ['id' => $report->id]) }}">Edit</a>
+
                                 <form class="inline-form"
                                     action="{{ route('consumable.destroy', ['id' => $report->id]) }}" method="POST">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="btn btn-danger remove">Удалить</button>
                                 </form>
-
-
                             </td>
                         </tr>
                     @endforeach
@@ -82,7 +82,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input class="form-control" type="number" name="count" placeholder="Количество" min="0">
+                            <input class="form-control" type="number" name="count" placeholder="Количество" min="1">
                         </div>
                     </div>
                 </form>
@@ -93,44 +93,4 @@
             </div>
         </div>
 
-        {{-- Есть пару идей как сделать в одном модальном окне --}}
-
-        <!-- Modal edit -->
-        <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="editModalLabel">Выберите расходник</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <form id="editForm" method="post" action="">
-                        @csrf
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <select class="custom-select" name="name">
-                                    <option value="" selected>Выберите расходник</option>
-                                    @foreach ($consumable as $item)
-                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <input class="form-control" placeholder="Цена" type="number" readonly name="price">
-                            </div>
-
-                            <div class="form-group">
-                                <input class="form-control" type="number" name="count" placeholder="Количество" min="0">
-                            </div>
-                        </div>
-                    </form>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-                        <button form="edit-consumable" type="submit" class="btn btn-primary">Редактировать</button>
-                    </div>
-                </div>
-            </div>
-
-        @endsection
+    @endsection

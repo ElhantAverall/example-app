@@ -23,7 +23,11 @@ Route::post('consumable/store', [ConsumableController::class, 'store'])->name('c
 
 Route::delete('consumable/destroy/{id}', [ConsumableController::class, 'destroy'])->name('consumable.destroy');
 
-Route::post('consumable/edit/{id}', [ConsumableController::class, 'edit'])->name('consumable.edit');
+Route::get('consumable/edit/{id}', [ConsumableController::class, 'edit'])->name('consumable.edit');
+
+Route::post('consumable/update/{id}', [ConsumableController::class, 'update'])->name('consumable.update');
+
+
 
 
 Route::get('/admin-panel/', [AdminController::class, 'index']);

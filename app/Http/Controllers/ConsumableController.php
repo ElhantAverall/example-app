@@ -11,7 +11,8 @@ class ConsumableController extends Controller
     public function index()
     {
         $reports = Report::all();
-        $consumable = Consumable::all();
+        $consumable = Consumable::all()
+            ->where('allow', 1);
 
         // dd($consumable);
         return view('consumable', compact('consumable', 'reports'));
@@ -37,14 +38,25 @@ class ConsumableController extends Controller
 
     public function edit($id)
     {
-        $reports = Report::find($id);
-        return view('consumable.edit')->with('reports', $reports);
+        $consumable = Consumable::all()
+            ->where('allow', 1);
+        dd($consumable);
+        $reports = Report::all()->where('id', $id);
+
+        return view('edit-consumable', compact('consumable', 'reports'));
     }
 
     public function destroy($id)
     {
         $reports = Report::find($id);
         $reports->delete();
+
+        return redirect('/consumable');
+    }
+
+    public function update($id)
+    {
+
 
         return redirect('/consumable');
     }

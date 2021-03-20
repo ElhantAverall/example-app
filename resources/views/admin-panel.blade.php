@@ -9,7 +9,7 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th class="table-bordered__row" scope="col">Разрешить</th>
+                        <th class="table-bordered__row" scope="col">Разрешено</th>
                         <th class="table-bordered__row" scope="col">Имя</th>
                         <th class="table-bordered__row" scope="col">Цена</th>
                         <th class="table-bordered__row" scope="col" width="13.3%">
@@ -25,7 +25,7 @@
                         <tr>
                             <td width="15% checkbox">
                                 <div class="form-group">
-                                    <input class="form-control" type="checkbox" name="allow" @if ($item->allow) checked @endif>
+                                    <input class="form-control" type="checkbox" name="allow" @if ($item->allow) checked @endif readonly>
                                 </div>
                             </td>
                             <td>
@@ -47,7 +47,6 @@
                     @endforeach
                 </tbody>
             </table>
-            <button class="btn btn-warning" type="submit">Сохранить</button>
         </div>
     </div>
 
@@ -65,6 +64,12 @@
                 <form id="add-consumable" method="post" action="{{ route('admin.store') }}">
                     @csrf
                     <div class="modal-body">
+
+                        <div class="input-group-text">
+                            <label class="form-label">Разрешить расходник пользователю</label>
+                            <input class="form-control" type="checkbox" name="allow" value="1" @if ($item->allow) checked @endif>
+                        </div>
+
                         <div class="form-group">
                             <input class="form-control" type="text" name="name" placeholder="Имя расходника">
                         </div>
