@@ -53,6 +53,7 @@
 
         </div>
     </div>
+
     <!-- Modal add -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="consumableModalLabel"
         aria-hidden="true">

@@ -12,7 +12,12 @@
 
 <body>
     <div class="container">
-
+        <div class="row">
+            <div class="col-md-12">
+                <a class="link" href="{{ route('consumable.index') }}">Cons</a>
+                <a class="link" href="{{ route('admin.index') }}">Admin</a>
+            </div>
+        </div>
         @yield('content')
 
     </div>

@@ -17,7 +17,7 @@ use Symfony\Component\Console\Input\Input;
 */
 
 
-Route::get('/consumable/', [ConsumableController::class, 'index']);
+Route::get('/consumable/', [ConsumableController::class, 'index'])->name('consumable.index');
 
 Route::post('consumable/store', [ConsumableController::class, 'store'])->name('consumable.store');
 
@@ -30,7 +30,7 @@ Route::put('consumable/update/{report}', [ConsumableController::class, 'update']
 
 
 
-Route::get('/admin-panel/', [AdminController::class, 'index']);
+Route::get('/admin-panel/', [AdminController::class, 'index'])->name('admin.index');
 
 Route::post('admin-panel/store', [AdminController::class, 'store'])->name('admin.store');
 
